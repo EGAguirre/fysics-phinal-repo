@@ -9,8 +9,31 @@ const terminal = readline.createInterface({
 });
 
 terminal.question("What type of equation are you looking for?",function(str){
+if(str == "motion"){
+  terminal.question("which variable are you solving for?",function(str){
+    if(str == "d"){
+      end();
+    };
+    if(str == "v"){
+      end();
+    };
+    if(str == "a"){
+      end();
+    };
+  })
 
-    //you will configure your series of questions inside here.
+};
+else if(str == "energy"){
+  else if(str == "ke"){
+    end();
+  };
+  else if(str == "m"){
+    end();
+  };
+  else if(str == "v"){
 
+  };
+
+};
 
 });
