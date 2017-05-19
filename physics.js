@@ -2,6 +2,16 @@ const motion = require('./motion');
 const energy = require('./energy');
 const readline = require('readline');
 
+function end(){
+    terminal.close();
+}
+
+function printOptions(){
+    console.log("\nEnter the variables you know in a comma list.");
+    console.log("If you do not know a variable, then type n");
+    console.log("distance,velocity,acceleration,time,mass,energy");
+
+}
 
 const terminal = readline.createInterface({
     input:process.stdin,
@@ -14,26 +24,40 @@ if(str == "motion"){
     if(str == "d"){
       end();
     };
-    if(str == "v"){
+    else if(str == "v"){
       end();
     };
-    if(str == "a"){
+    else if(str == "a"){
       end();
     };
-  })
+  });
 
 };
 else if(str == "energy"){
-  else if(str == "ke"){
+  terminal.question("which variable are you looking for?",function(str){
+    if(str == "ke"){
+      terminal.question("",function(answers){
+        printOptions();
+        console.log(energy.kineticEnergy(answers[4],answers[1]));
+      });
     end();
-  };
-  else if(str == "m"){
-    end();
-  };
-  else if(str == "v"){
-
-  };
-
+    };
+    else if(str == "m"){
+      terminal.question("",function(answers){
+        printOptions();
+        console.log(energy.mass(answers[5],answers[1]));
+      };
+      end();
+    };
+    else if(str == "v"){
+      terminal.question("",function(answers){
+        printOptions();
+        console.log(energy.velocity(answers[5],answers[4]));
+      };
+  });
+};
+else{
+  return "I'm sorry I don't know how to calculate that yet..."
 };
 
 });
