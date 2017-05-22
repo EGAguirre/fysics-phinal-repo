@@ -22,12 +22,23 @@ terminal.question("What type of equation are you looking for?",function(str){
 if(str == "motion"){
   terminal.question("which variable are you solving for?",function(str){
     if(str == "d"){
+      printOptions();
+      console.log(motion.distance(answers[1],answers[3]));
       end();
     };
     else if(str == "v"){
+      printOptions();
+      console.log(motion.velocity(answers[0],answers[3]));
       end();
     };
+    else if(str == "t"){
+      printOptions();
+      console.log(motion.time(answers[0],answers[1]));
+      end();
+    }
     else if(str == "a"){
+      printOptions();
+      console.log(motion.distance(answers[2],answers[1],answers[3]));
       end();
     };
   });
